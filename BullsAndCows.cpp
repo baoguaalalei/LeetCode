@@ -2,16 +2,12 @@ class Solution {
 public:
     string getHint(string secret, string guess) {
         
-        int a=0;
-        
-        int b=0;
-        
-        vector<int>Svet(10,0);//0~9 for vector
-        
-        vector<int>Gvet(10,0);//0~9 for guess
+        int a=0;        
+        int b=0;        
+        vector<int>Svet(10,0);//0~9 for vector        
+        vector<int>Gvet(10,0);//0~9 for guess	
 		
-		if(secret.size()!==guess.size()||secret.size()==0)
-			
+		if(secret.size()!==guess.size()||secret.size()==0)			
 		return "0A0B";
         
         for(int i=0;i<secret.size();i++)
@@ -34,4 +30,5 @@ public:
         
         return to_string(a)+"A"+to_string(b)+"B";
     }
+	
 };
