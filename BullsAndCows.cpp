@@ -9,6 +9,10 @@ public:
         vector<int>Svet(10,0);//0~9 for vector
         
         vector<int>Gvet(10,0);//0~9 for guess
+		
+		if(secret.size()!==guess.size()||secret.size()==0)
+			
+		return "0A0B";
         
         for(int i=0;i<secret.size();i++)
         {
