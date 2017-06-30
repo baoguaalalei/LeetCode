@@ -1,3 +1,5 @@
+
+//该计算应该考虑数据是负值最大的时候，INT_MIN，这个时候直接转换为正直会报错
 class Solution {
 public :
 double myPow(double x, int n) {
