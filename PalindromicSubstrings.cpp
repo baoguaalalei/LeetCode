@@ -9,6 +9,12 @@ Given a string, your task is to count how many palindromic substrings in this st
 The substrings with different start indexes or end indexes are counted as different substrings even they consist of same characters.
 */
 //Edit by xwh 2017/10/10
+
+//算法思路
+/*
+*以某一点为起始点开始出发，向前寻找相同的数，若有相同的值，则判断这一段之间是不是回文数，如果是，则记录数增加1.
+*/
+
 class Solution{
 public:
 	int countSubstrings(string s){
