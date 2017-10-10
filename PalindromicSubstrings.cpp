@@ -3,6 +3,12 @@
 #include <vector>
 #include <stdlib.h>
 using namespace std;
+/*
+leetcode 647
+Given a string, your task is to count how many palindromic substrings in this string.
+The substrings with different start indexes or end indexes are counted as different substrings even they consist of same characters.
+*/
+//Edit by xwh 2017/10/10
 class Solution{
 public:
 	int countSubstrings(string s){
