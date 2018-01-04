@@ -1,0 +1,20 @@
+'''
+Heaters
+
+Winter is coming! Your first job during the contest is to design a standard heater with fixed warm radius to warm all the houses.
+
+Now, you are given positions of houses and heaters on a horizontal line, find out minimum radius of heaters so that all houses could be covered by those heaters.
+
+So, your input will be the positions of houses and heaters seperately, and your expected output will be the minimum radius standard of heaters.
+
+'''
+
+class Solution:
+    def findRadius(self, houses, heaters):
+        heaters = sorted(heaters) + [float('inf')]
+        i = r = 0
+        for x in sorted(houses):
+            while x >= sum(heaters[i:i+2]) / 2.:
+                i += 1
+            r = max(r, abs(heaters[i] - x))
+        return r     
