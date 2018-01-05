@@ -10,9 +10,9 @@ You may assume the given input string is always valid. For example, "01:34", "12
 #include <sstream>
 #include <vector>
 using namespace std;
-//解题思路，XX：XX四个位置每个位置的数据大小限制 （1）0-2；（2）0-4；（3）0-6；（4）0-9
+//讨论区内更为简洁高效的办法
 //所有新组成的数据可能有3*5*7*10种情况，实际中最多只能有3*4*4*4=192种情况
-
+/*
 class Solution
 {	
 public:
@@ -131,7 +131,35 @@ public:
 		return time;		
 	}
 };
+*/
+class Solution
+{
+public:
+	string nextClosestTime(string time){
+		int mins[4] = {600,60,10,1};
+		size_t colon = time.find(':');
+		int cur = stoi(time.substr(0,colon))*60 + stoi(time.substr(colon+1));//记录当下的时间的大小
+		string next = "0000";
+		for (int i = 1,d = 0;i <= 1440 && d < 4; i++)
+		{
+			int m = (cur + i) % 1440;
+			for (d = 0; d < 4; d++)
+			{
+				next[d] = '0' + m / mins[d];
+				m %= mins[d];
+				if (time.find(next[d]) == string::npos) 
+				{
+					printf("%d\n",time.find(next[d]));
+					break;
+				}
+					
+			}
+		}
+		return next.substr(0,2) + ':' +next.substr(2,2);
+	}
+};
 
+/*
 int main(){
 	string  time = "06:49";
 	Solution solu;
@@ -139,4 +167,4 @@ int main(){
 	cout<<ret;
 	return 0;
 
-}
+}*/
