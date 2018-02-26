@@ -1,0 +1,44 @@
+/*
+Initially on a notepad only one character 'A' is present. You can perform two operations on this notepad for each step:
+
+Copy All: You can copy all the characters present on the notepad (partial copy is not allowed).
+Paste: You can paste the characters which are copied last time.
+Given a number n. You have to get exactly n 'A' on the notepad by performing the minimum number of steps permitted. Output the minimum number of steps to get n 'A'.
+*/
+#include <math.h>
+class Solution {
+public:
+    int minSteps(int n) {
+        
+        if(n == 1) return 0;
+        if(n == 2) return 2;
+        if(n == 3) return 3;
+        
+        int num = 0;
+        int location  = 0;
+        for(int i = (int)ceil(n/2)+1;i>2;i--)
+        {
+            if(n%i == 0) 
+            { 
+                num += (n/i);
+                location = i;
+                break;
+            }          
+                 
+        }
+        
+        if(num == 0){
+            num += n;
+            location = n;
+        }
+        
+            
+        if(location < n)
+        {
+             num  += minSteps(location);            
+        }       
+       
+        return num;
+        
+    }
+};
